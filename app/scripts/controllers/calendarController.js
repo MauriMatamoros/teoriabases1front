@@ -1,4 +1,4 @@
-angular.module('AngularScaffold.Controllers')
+angular.module('helpiApp.Controllers')
   .controller('calendarController', ['ui.calendar','ui.bootstrap','reservacionService', '$scope', '$rootScope', '$sessionStorage', '$location', '$window',
 function (reservacionService, $scope, $rootScope, $sessionStorage, $location, $window, $compile, uiCalendarConfig) {
     $scope.Reserva = {};

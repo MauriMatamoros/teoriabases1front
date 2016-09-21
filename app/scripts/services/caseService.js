@@ -2,7 +2,7 @@ angular.module('helpiApp.Services').factory('caseService', ['$http',
 	function($http){
 		$http.defaults.withCredentials = true;
 		//var baseUrl = 'http://cloudservices-helpi.herokuapp.com/';
-		var baseUrl = 'http://localhost:8000/';
+		var baseUrl = 'http://192.168.1.10:8000/';
 
 		return {
       Add: function(payload){

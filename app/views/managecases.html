@@ -1,0 +1,115 @@
+<script>
+  $('#opencasemodal').on('click', function(){
+    $('#modal2').openModal();
+  })
+</script>
+<div class="container" ng-controller="caseController">
+  <!-- ZONA DE LOS CASOS DE MENOS IMPORTANCIA -->
+
+  <ul>
+    <div class="row">
+      <div class="col s12 m4 l4 medium" ng-repeat="case in cases">
+        <li>
+          <div class="card">
+            <div class="card-image waves-effect waves-block waves-light">
+              <img class="activator" ng-src="{{case.imageLink}}" alt="Casos Helpi">
+              <!-- <span class="card-title">{{case.name}}</span> -->
+            </div>
+            <div class="card-content">
+              <span class="card-title activator grey-text text-darken-4">
+                {{case.name}}
+              </span>
+              <p>{{case.resume}}</p>
+            </div>
+            <!-- <div class="card-action">
+              <a ng-click="setDonorToHelpi(case)">Donar para este caso</a>
+            </div> -->
+            <div class="card-reveal">
+              <span class="card-title grey-text text-darken-4">
+                {{case.name}} <i class="material-icons right">close</i>
+              </span>
+              <p>{{case.description}}</p>
+              <span class="card-action">$ {{case.money}}</span>
+            </div>
+            <div class="card-action">
+              <div class="row">
+                <div class="col s10">
+                  <a href="" class="right-align delete" ng-click="deleteCase(case)"><i class="material-icons">delete</i></a>
+                </div>
+                <div class="col s2">
+                  <div ng-if="case.priority == 1"><i class="material-icons">trending_up</i></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </li>
+      </div>
+    </div>
+  </ul>
+  <br>
+  <div class="row">
+      <div class="col s12 m3 l3"><p> </p></div>
+      <a id="opencasemodal" class="waves-effect waves-light col s12 l6 m6 btn green accent-3"><i class="material-icons left">note_add</i>Add Case</a>
+      <div class="col s12 m3 l3"><p> </p></div>
+  </div>
+  <!-- modal comienza aqui -->
+  <div id="modal2" class="modal">
+    <div class="modal-content green accent-1">
+      <form>
+      <h4 id="brand_Name">Add Case</h4>
+      <div class="row">
+        <div class="col s12 m2 l2"><p> </p></div>
+        <div class="input-field col s12 m8 l8">
+          <!-- <i class="material-icons prefix">perm_identity</i> -->
+          <input id="nombre" type="text" class="validate" ng-model="case.name">
+          <label for="nombre">Name</label>
+        </div><div class="col s12 m2 l2"><p> </p></div>
+      </div>
+      <div class="row">
+        <div class="col s12 m2 l2"><p> </p></div>
+        <div class="input-field col s12 m8 l8">
+          <!-- <i class="material-icons prefix">account_circle</i> -->
+          <input id="ImageLink" type="text" ng-model="case.imageLink">
+          <label for="username">Image Link</label>
+        </div><div class="col s12 m2 l2"><p> </p></div>
+      </div>
+        <div class="row">
+          <div class="col s12 m2 l2"><p> </p></div>
+          <div class="input-field col s12 m8 l8">
+            <textarea id="textarea1" class="materialize-textarea" ng-model="case.description"></textarea>
+            <label for="textarea1">Description</label>
+          </div><div class="col s12 m2 l2"><p> </p></div>
+        </div>
+        <div class="row">
+          <div class="col s12 m2 l2"><p> </p></div>
+          <div class="input-field col s12 m8 l8">
+            <textarea id="textarea1" class="materialize-textarea" ng-model="case.resume"></textarea>
+            <label for="textarea1">Resume</label>
+          </div><div class="col s12 m2 l2"><p> </p></div>
+        </div>
+      <div class="row">
+        <div class="col s12 m2 l2"><p> </p></div>
+        <div class="input-field col s12 m8 l8">
+          <!-- <i class="material-icons prefix">account_circle</i> -->
+          <input id="Goal" type="text" ng-model="case.money">
+          <label for="Goal">Goal $</label>
+        </div><div class="col s12 m2 l2"><p> </p></div>
+      </div>
+      <div class="row">
+        <div class="col s12 m2 l2"><p> </p></div>
+        <div class="input-field col s12 m8 l8">
+          <select class="browser-default" ng-model="case.priority">
+            <option value="" disabled selected>Choose Priority</option>
+            <option value="1">High</option>
+            <option value="0">Low</option>
+          </select>
+        </div>
+        <div class="col s12 m2 l2"><p> </p></div>
+      </div>
+      </form>
+    </div>
+    <div class="modal-footer green accent-2">
+      <a class=" modal-action modal-close waves-effect waves-light btn-flat green accent-3" style="color: #fff;" ng-click="addCase(case)">ADD</a>
+    </div>
+  </div>
+</div>

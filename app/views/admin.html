@@ -1,0 +1,28 @@
+<div class="container" ng-controller="caseController">
+  <!-- ZONA DE LOS CASOS DE MENOS IMPORTANCIA -->
+  <ul>
+    <div class="row">
+      <div class="col s12 m4 l4 medium" ng-repeat="table in tables">
+        <li>
+          <div class="card">
+            <div class="card-content activator" ng-click="fillCards(table)">
+              <span class="card-title">{{table.name}}</span>
+            </div>
+            <div class="card-reveal">
+              <span class="card-title grey-text text-darken-4">
+                {{table.name}} <i class="material-icons right">close</i>
+              </span>
+              <div class="container" ng-repeat="donor in myDonors">
+                {{donor}}
+              </div>
+            </div>
+            <!-- <div class="card-action">
+              <a href="" class="right-align delete" ng-s ><i class="material-icons">delete</i></a>
+            </div> -->
+          </div>
+        </li>
+      </div>
+    </div>
+  </ul>
+  <br>
+</div>

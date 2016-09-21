@@ -1,124 +1,37 @@
-<div ng-controller="labController">
-  <div><br><br><br></div>
-  <div class="row">
-    <div class="col s6 m4 l4">
-      <a class="waves-effect waves-light btn" ng-click="addLab(Lab)" type="submit">Add Lab</a>
-    </div>
-    
-  </div>
-  
-    <div>
-      <div class="row ">
-        <div class="col s12 m6 l6">
-          <input type="text" name="id" ng-model="Lab.id" id="id">
-          <label for="id">ID</label>          
-        </div>
-
-        <div class="col s12 m6 l6">
-          <input type="text" name="name" ng-model="Lab.name" id="name">
-          <label for="name">NAME</label>
-        </div>
-
-        <div class="col s12 m6 l6">
-          <input type="text" name="descripcion" ng-model="Lab.descripcion" id="descripcion">
-          <label for="descripcion">DESC</label>
-        </div>
-
-        <div class="col s12 m6 l6">
-          <input type="text" name="ubicacion" ng-model="Lab.ubicacion" id="ubicacion">
-          <label for="ubicacion">UBICACION</label>
-        </div>
-
-        <div class="col s12 m6 l6">
-          <input type="text" name="capacidad" ng-model="Lab.capacidad" id="capacidad">
-          <label for="capacidad">CAPACIDAD</label>
-        </div>        
-      </div>      
-            
-    </div>
-    <div><br><br></div>
-    <div>
-      <div>
-        <a class="waves-effect waves-light btn" type="submit" ng-click="GetLabs()">Get Labs</a>
-        
-      </div>
-      <div><br><br></div>
-      
-    <div>
-      
-      <table>
-        <thead>
-          <tr>
-              <th>ID</th>
-              <th>Name</th>
-              <th>Desc</th>
-              <th>Capacidad</th>
-              <th>Ubicacion</th>
-          </tr>
-        </thead>
-
-        <tbody>
-          <tr ng-repeat="lab in labs">
-            <td>
-              {{lab.id}}
-            </td>
-            <td>
-              {{lab.name}}
-            </td>
-            <td>
-              {{lab.descripcion}}
-            </td>
-            <td>
-              {{lab.capacidad}}
-            </td>
-            <td>
-              {{lab.ubicacion}}
-            </td>
-          </tr>
-        </tbody>
-      </table>
-
-    </div>
-    <div><br><br><br>   
-</div>
 <div ng-controller="calendarController">
 
-  <a class="waves-effect waves-light btn" type="submit" ng-click="addReserva(Reserva)">Get Labs</a>
+  
 
   <div class="row ">
         <div class="col s12 m6 l6">
-             <input type="text" name="id_reserva" ng-model="Reserva.id" id="id_reserva">
-             <label for="id_reserva">ID</label>   
+             <input type="text" name="id_reserva" ng-model="Reserva.id" id="id_reserva" placeholder="ID">
+             
         </div>
 
         <div class="col s12 m6 l6">
-              <input type="text" name="descripcion" ng-model="Reserva.descripcion" id="descripcion_reserva">
-              <label for="descripcion_reserva">DESC</label>
+              <input type="text" name="descripcion" ng-model="Reserva.descripcion" id="descripcion_reserva" placeholder="descripcion">
+             
         </div>
 
         <div class="col s12 m6 l6">
-              <input type="text" name="fecha_inicio" ng-model="Reserva.fecha_inicio" id="fecha_inicio">
-              <label for="fecha_inicio">FECHA_INI</label>     
+              <input type="text" name="fecha_inicio" ng-model="Reserva.fecha_inicio" id="fecha_inicio" placeholder="Fecha Inicio">
+              
         </div>
 
         <div class="col s12 m6 l6">
-            <input type="text" name="fecha_fin" ng-model="Reserva.fecha_fin" id="fecha_fin">
-            <label for="fecha_fin">FECHA_FIN</label>        
+            <input type="text" name="fecha_fin" ng-model="Reserva.fecha_fin" id="fecha_fin" placeholder="Fecha Fin">
         </div>
 
         
   </div>
 
-    <div>
-      
-      
-            
-    </div>
+  <a class="waves-effect waves-light btn" type="submit" ng-click="addReserva(Reserva)">Add Reserva</a>
+  
     <div><br><br></div>
     <div>
       <div class="row">
         <div class="col s6 m4 l4">
-          <a class="waves-effect waves-light btn" type="submit" ng-click="GetLabs(id_buscar)">Get Labs</a>
+          <a class="waves-effect waves-light btn" type="submit" ng-click="GetLabs(id_buscar)">Buscar Lab</a>
         </div>
       </div>
       <div>
@@ -150,7 +63,7 @@
               {{reserva.id}}
             </td>
             <td>
-            {{reserva.email}}
+              {{reserva.email}}
             </td>
             <td>
               {{reserva.descripcion}}

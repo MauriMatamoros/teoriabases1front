@@ -3,7 +3,6 @@ angular.module('helpiApp.Controllers')
 function (labService, $scope, $rootScope, $sessionStorage, $location, $window) {
     $scope.Lab = {};
     $scope.Labs = [];
-    $scope.Reservaciones = [];
 
     $scope.getLabs = function(){
       labService.GetLabs().then(function(response) {

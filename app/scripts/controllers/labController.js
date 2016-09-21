@@ -5,7 +5,6 @@ function (labService, $scope, $rootScope, $sessionStorage, $location, $window) {
     $scope.Labs = [];
     $scope.Reservaciones = [];
 
-
     $scope.getLabs = function(){
       caseService.GetLabs().then(function(response) {
         $scope.Labs = response.data;

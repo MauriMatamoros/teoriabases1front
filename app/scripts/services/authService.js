@@ -6,14 +6,14 @@ angular.module('helpiApp.Services').factory('AuthService', ['$http',
 
 		return {
 				Logout: function(){
-					return $http.get(baseUrl + "auth/logout");
+					return $http.get(baseUrl + "v1/logoutDocente");
 				},
 				Login: function(payload){
-					return $http.post(baseUrl + "auth/login", payload);
+					return $http.post(baseUrl + "v1/loginDocente", payload);
 				},
-		        Register: function(payload){
-		          return $http.post(baseUrl + "v1/registrarDocente", payload);
-		        },
+	      Register: function(payload){
+	        return $http.post(baseUrl + "v1/registrarDocente", payload);
+		    },
 				// RegisterAdmin: function(payload){
 				// return $http.post(baseUrl + "users/createuser", payload);
 				// },

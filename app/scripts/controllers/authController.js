@@ -54,13 +54,8 @@ angular.module('helpiApp.Controllers')
         authService.Login(user).then(function(response){
           $sessionStorage.currentUser = response.data;
           $scope.user = {};
-          if ($sessionStorage.currentUser.scope[0] === 'admin') {
-            $location.path('/admin');
-            Materialize.toast('Bienvenido ' + $sessionStorage.currentUser.scope[0] + " " + $sessionStorage.currentUser.name, 3500);
-          }else {
-            $location.path('/Teacher');
-            Materialize.toast('Bienvenido ' + $sessionStorage.currentUser.scope[0] + " " + $sessionStorage.currentUser.name, 3500);
-          }
+          $location.path('/addLab');
+          Materialize.toast('Bienvenido ' + $sessionStorage.currentUser + " " + $sessionStorage.currentUser.name, 3500);
         }).catch(function(err){
           Materialize.toast(err.data.error + " " + err.data.message, 3500);
         });
@@ -74,6 +69,7 @@ angular.module('helpiApp.Controllers')
           Departamento: $scope.user.Departamento,
           Campus: $scope.user.Campus,
           Email: $scope.user.Email,
+          isAdmin: $scope.user.isAdmin = 0,
           Password: $scope.user.Password
         }
         console.log('Registrado');
@@ -215,9 +211,6 @@ angular.module('helpiApp.Controllers')
       //   })
       // }
 
-      // $scope.isAdmin = function(){
-      //   return $sessionStorage.currentUser && $sessionStorage.currentUser.scope.indexOf('admin') > -1;
-      // }
       //
       // $scope.isDonante = function(){
       //   return $sessionStorage.currentUser && $sessionStorage.currentUser.scope.indexOf('donante') > -1;

@@ -50,6 +50,10 @@ app.config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $ur
             url: '/ManageCases',
             templateUrl: '/views/managecases.html'
         })
+        .state('addLab', {
+            url: '/addLab',
+            templateUrl: '/views/addLab.html'
+        })
 				.state('Perfil', {
             url: '/donante/perfil',
             templateUrl: '/views/prefilView.html'

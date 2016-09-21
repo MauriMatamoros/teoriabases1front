@@ -30,13 +30,8 @@ angular.module('helpiApp.Controllers')
         authService.Login(user).then(function(response){
           $sessionStorage.currentUser = response.data;
           $scope.user = {};
-          if ($sessionStorage.currentUser.isAdmin) {
-            $location.path('/admin');
-            Materialize.toast('Bienvenido Administrador ' + $sessionStorage.currentUser.Nombre + " " + $sessionStorage.currentUser.Apellido, 3500);
-          }else {
-            $location.path('/Teacher');
+            $location.path('/addLab');
             Materialize.toast('Bienvenido ' + $sessionStorage.currentUser.Nombre + " " + $sessionStorage.currentUser.Apellido, 3500);
-          }
         }).catch(function(err){
           Materialize.toast(err.data.error + " " + err.data.message, 3500);
         });
@@ -56,7 +51,7 @@ angular.module('helpiApp.Controllers')
         authService.Register(user).then(function(response){
           console.log('Registrado');
           Materialize.toast('Registrado Correctamente!!!', 3500);
-          $location.path('/portfolio');
+          $location.path('/addLab');
         }).catch(function(err){
           console.log(err);
           Materialize.toast(err.data.error + " " + err.data.message, 3500);

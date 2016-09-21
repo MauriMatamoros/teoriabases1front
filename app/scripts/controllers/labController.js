@@ -4,13 +4,18 @@ function (labService, $scope, $rootScope, $sessionStorage, $location, $window) {
     $scope.Lab = {};
     $scope.Labs = [];
     $scope.Reservaciones = [];
+    
+    angular.element().ready(function(){
+      $scope.getLabs();
+    });
 
     $scope.getLabs = function(){
+      console.log('getting labs')
       labService.GetLabs().then(function(response) {
         $scope.Labs = response.data;
-        console.log($scope.Labs);
+        console.log(response.data);
       }).catch(function(err) {
-        console.log(err.data);
+        console.log(err);
       });
     }
 
@@ -33,7 +38,7 @@ function (labService, $scope, $rootScope, $sessionStorage, $location, $window) {
       })
     }
     $scope.deleteLab = function(Lab){
-      labService.Delete(Lab._id).then( function(response){
+      labService.Delete(Lab.id).then( function(response){
         $window.location.reload();
         Materialize.toast(response.data, 3500);
       }).catch(function (err){

@@ -9,10 +9,10 @@ angular.module('helpiApp.Services').factory('labService', ['$http',
         return $http.post(baseUrl + "v1/agregarLaboratorio", payload);
       },
       Delete: function(id){
-        return $http.delete(baseUrl + "v1/borrarLaboratorio" + id);
+        return $http.delete(baseUrl + "v1/borrarLaboratorio/"+id);
       },
-		GetLabs: function(id){
-			return $http.get(baseUrl + "v1/Laboratorio/{id}");
+		GetLabs: function(){
+			return $http.get(baseUrl + "v1/Laboratorios");
 		}
     };
 }]);

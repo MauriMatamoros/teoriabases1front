@@ -6,7 +6,7 @@ function (labService, $scope, $rootScope, $sessionStorage, $location, $window) {
     $scope.Reservaciones = [];
 
     $scope.getLabs = function(){
-      caseService.GetLabs().then(function(response) {
+      labService.GetLabs().then(function(response) {
         $scope.Labs = response.data;
         console.log($scope.Labs);
       }).catch(function(err) {
@@ -15,7 +15,7 @@ function (labService, $scope, $rootScope, $sessionStorage, $location, $window) {
     }
 
     $scope.addLab = function(Lab){
-      caseService.Add({
+      labService.Add({
         Nombre: Lab.Name,
         Descripcion: Lab.Descripcion,
         Ubicacion: Lab.Ubicacion,

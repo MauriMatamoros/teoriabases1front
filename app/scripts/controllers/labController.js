@@ -15,8 +15,9 @@ function (labService, $scope, $rootScope, $sessionStorage, $location, $window) {
     }
 
     $scope.addLab = function(Lab){
+      console.log("adding lab");
       labService.Add({
-        Nombre: Lab.Name,
+        Nombre: Lab.Nombre,
         Descripcion: Lab.Descripcion,
         Ubicacion: Lab.Ubicacion,
         Capacidad: Lab.Capacidad,

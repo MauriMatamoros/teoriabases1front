@@ -11,8 +11,8 @@ angular.module('helpiApp.Services').factory('labService', ['$http',
       Delete: function(id){
         return $http.delete(baseUrl + "v1/borrarLaboratorio" + id);
       },
-			GetLabs: function(id){
-				return $http.get(baseUrl + "v1/Laboratorio/{id}");
-			}
+		GetLabs: function(id){
+			return $http.get(baseUrl + "v1/Laboratorio/{id}");
+		}
     };
 }]);

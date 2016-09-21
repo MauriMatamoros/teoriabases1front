@@ -22,11 +22,11 @@ function (reservacionService, $scope, $rootScope, $sessionStorage, $location, $w
     $scope.addReserva = function(Reserva){
 
       reservacionService.Add({
-        id: Reserva.id,
-        email: "ricardo.j.galdamez@gmail.com",
-        descripcion: Reserva.descripcion,
-        fecha_inicio:Reserva.fecha_inicio,
-        fecha_fin:Reserva.fecha_fin,
+        idLab: Reserva.id,
+        Email: "ricardo.j.galdamez@gmail.com",
+        fecha_I:Reserva.fecha_inicio,
+        fecha_F:Reserva.fecha_fin,
+        Descripcion: Reserva.descripcion
 
       }).then( function(response){
         $window.location.reload();

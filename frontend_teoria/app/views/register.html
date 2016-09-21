@@ -1,0 +1,92 @@
+<br><br><br>
+<div class="container" ng-controller="authController">
+  <div id="login-page" class="row">
+    <div class="col s12 z-depth-6 card-panel">
+      <form class="login-form">
+        <div class="row">
+          <div class="input-field col s12 center">
+            <a id="brand_Name" class="brand-logo" ui-sref="portfolio">Registrarse</a>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col s12 m2 l2"><p> </p></div>
+          <div class="input-field col s12 m8 l8">
+            <i class="material-icons prefix">perm_identity</i>
+            <input id="nombre" type="text" class="validate" ng-model="user.Nombre">
+            <label for="nombre">Nombres</label>
+          </div><div class="col s12 m2 l2"><p> </p></div>
+        </div>
+        <div class="row">
+          <div class="col s12 m2 l2"><p> </p></div>
+          <div class="input-field col s12 m8 l8">
+            <i class="material-icons prefix">perm_identity</i>
+            <input id="apellido" type="text" class="validate" ng-model="user.Apellido">
+            <label for="apellido">Apellidos</label>
+          </div><div class="col s12 m2 l2"><p> </p></div>
+        </div>
+        <div class="row">
+          <div class="col s12 m2 l2"><p> </p></div>
+          <div class="input-field col s12 m8 l8">
+            <i class="material-icons prefix">location_on</i>
+            <input id="campus" type="text" class="validate" ng-model="user.Campus">
+            <label for="campus">Campus</label>
+          </div><div class="col s12 m2 l2"><p> </p></div>
+        </div>
+        <div class="row">
+          <div class="col s12 m2 l2"><p> </p></div>
+          <div class="input-field col s12 m8 l8">
+            <i class="material-icons prefix">location_on</i>
+            <input id="departamento" type="text" class="validate" ng-model="user.Departamento">
+            <label for="departamento">Departamento</label>
+          </div><div class="col s12 m2 l2"><p> </p></div>
+        </div>
+        <div class="row">
+          <div class="col s12 m2 l2"><p> </p></div>
+          <div class="input-field col s12 m8 l8">
+            <i class="material-icons prefix">phone</i>
+            <input id="telefono" type="text" class="validate" ng-model="user.Telefono">
+            <label for="telefono">Telefono</label>
+          </div><div class="col s12 m2 l2"><p> </p></div>
+        </div>
+        <div class="row">
+          <div class="col s12 m2 l2"><p> </p></div>
+          <div class="input-field col s12 m8 l8">
+            <i class="material-icons prefix">account_circle</i>
+            <input id="email" type="text" class="validate" ng-model="user.Email">
+            <label for="email">Email</label>
+          </div><div class="col s12 m2 l2"><p> </p></div>
+        </div>
+        <div class="row">
+          <div class="col s12 m2 l2"><p> </p></div>
+          <div class="input-field col s12 m8 l8">
+            <i class="material-icons prefix">https</i>
+            <input id="password" type="password" class="validate" ng-model="user.Password">
+            <label for="password">Password</label>
+          </div><div class="col s12 m2 l2"><p> </p></div>
+        </div>
+        <div class="row">
+          <div class="col s12 m2 l2"><p> </p></div>
+          <!-- <div class="input-field col s12 m8 l8  login-text">
+              <input type="checkbox" class="filled-in checkbox-indigo" id="remember-me" />
+              <label for="remember-me">Accept Terms and Conditions</label>
+          </div> -->
+        <div class="col s12 m2 l2"><p> </p></div>
+        </div>
+        <div class="row">
+          <div class="col s12 m2 l2"><p> </p></div>
+          <div class="input-field col s12 m8 l8">
+            <a class="waves-effect waves-light btn col s12  indigo darken-3" ng-click="register()"><i class="material-icons left">done_all</i>REGISTRAR</a>
+          </div><div class="col s12 m2 l2"><p> </p></div>
+        </div>
+        <div class="row">
+          <!-- <div class="input-field col s6 m6 l6">
+            <p class="margin medium-small"><a ui-sref="UC">Read Terms and Conditions</a></p>
+          </div> -->
+          <!-- <div class="input-field col s6 m6 l6">
+              <p class="margin right-align medium-small"><a ui-sref="Login">Already Have an Account?</a></p>
+          </div> -->
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

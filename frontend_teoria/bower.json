@@ -1,0 +1,31 @@
+{
+  "name": "helpi-frontend",
+  "authors": [
+    "csghx <cdnz1396@gmail.com>"
+  ],
+  "description": "web app for make donations",
+  "main": "index.html",
+  "keywords": [
+    "angular",
+    "materialize",
+    "jquery"
+  ],
+  "license": "ISC",
+  "homepage": "index.html",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "Materialize": "materialize#^0.97.6",
+    "angular": "^1.5.6",
+    "angular-ui-router": "^0.3.0",
+    "ngstorage": "^0.3.10",
+    "firebase": "^3.0.4",
+    "hover": "Hover#^2.0.2"
+  }
+}

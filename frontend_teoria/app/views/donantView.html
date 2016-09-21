@@ -1,0 +1,68 @@
+<script>
+  $('#modalView').on('click', function(){
+    $('#viewCase').openModal();
+  })
+</script>
+<script src="../scripts/initializer/init_slider.js"></script>
+<!-- SECTION -->
+<div id="HomeView" ng-controller="sessionController">
+  <div class="rslides_container" style="margin-top: 5px;">
+    <ul class="rslides" id="slider1">
+      <li><img src="styles/images/slide1.jpg" alt=""></li>
+      <li><img src="styles/images/slide2.jpg" alt=""></li>
+    </ul>
+  </div>
+  <div class="row">
+    <div class="col offset-s1 col s10">
+      <dvi class="container">
+        <!-- INFO de casos a los que he donado -->
+      </dvi>
+    </div>
+  </div>
+
+  <div class="container">
+    <!-- ZONA DE LOS CASOS DE MENOS IMPORTANCIA -->
+    <ul>
+      <div class="row">
+        <div class="col s12 m4 l4 medium" ng-repeat="case in cases">
+          <li>
+            <div class="card">
+              <div class="card-image waves-effect waves-block waves-light">
+                <img class="activator" ng-src="{{case.imageLink}}" alt="Casos Helpi">
+                <!-- <span class="card-title">{{case.name}}</span> -->
+              </div>
+              <div class="card-content">
+                <span class="card-title activator grey-text text-darken-4">
+                  {{case.name}}
+                </span>
+                <p>{{case.resume}}</p>
+              </div>
+              <div class="card-action">
+                <div class="row">
+                  <!-- <div class="col s12 m3 l4"><p> </p></div> -->
+                  <a class="waves-effect waves-light btn indigo col s12" ng-click="changeValue()">Donar</a>
+                  <!-- <div class="col s12 m3 l4"><p> </p></div> -->
+                  <label ng-hide="flag">Select the money</label>
+                  <select ng-hide="flag" class="browser-default" ng-model="moneydonor.money">
+                    <option value="" disabled selected>Choose your donation</option>
+                    <option value="500">500</option>
+                    <option value="1000">1000</option>
+                    <option value="1500">1500</option>
+                  </select>
+                  <a class="waves-effect waves-light btn indigo col s12" ng-hide="flag" ng-click="setDonorToHelpi(case)">Donar para este caso</a>
+                </div>
+              </div>
+              <div class="card-reveal">
+                <span class="card-title grey-text text-darken-4">
+                  {{case.name}} <i class="material-icons right">close</i>
+                </span>
+                <p>{{case.description}}</p>
+                <span class="card-action">$ {{case.money}}</span>
+              </div>
+            </div>
+          </li>
+        </div>
+      </div>
+    </ul>
+  </div>
+</div>

@@ -1,0 +1,62 @@
+<br><br><br>
+<div id="login" class="container" ng-controller="authController">
+  <div id="login-page" class="row">
+    <div class="col s12 z-depth-6 card-panel">
+      <form class="login-form">
+        <div class="row">
+          <div class="input-field col s12 center">
+            <a id="brand_Name" class="brand-logo" ui-sref="portfolio">Login</a>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col s12 m2 l2"><p> </p></div>
+          <div class="input-field col s12 m8 l8">
+            <i class="material-icons prefix">account_circle</i>
+            <input id="username" type="text" class="validate" ng-model="user.username">
+            <label for="username">E-mail</label>
+          </div><div class="col s12 m2 l2"><p> </p></div>
+        </div>
+        <div class="row">
+          <div class="col s12 m2 l2"><p> </p></div>
+          <div class="input-field col s12 m8 l8">
+            <i class="material-icons prefix">https</i>
+            <input id="password" type="password" class="validate" ng-model="user.password">
+            <label for="password">Password</label>
+          </div><div class="col s12 m2 l2"><p> </p></div>
+        </div>
+        <div class="row">
+          <div class="col s12 m2 l2"><p> </p></div>
+          <!-- <div class="input-field col s12 m8 l8  login-text">
+              <input type="checkbox" class="filled-in checkbox-indigo" id="remember-me" />
+              <label for="remember-me">Remember me</label>
+          </div><div class="col s12 m2 l2"><p> </p></div> -->
+        </div>
+        <div class="row">
+          <div class="input-field col s12">
+            <div class="col s12 m3 l4"><p> </p></div>
+            <button class="waves-effect waves-light btn col s12 m6 l4 indigo darken-3" ng-click="login(user)">Login<i class="fa fa-sign-in fa-3x" aria-hidden="true"></i></button>
+            <div class="col s12 m3 l4"><p> </p></div>
+          </div>
+          <!-- <div class="input-field col s12">
+            <div class="col s12 m3 l4"><p> </p></div>
+            <button id="google" class="waves-effect waves-light btn col s12 m6 l4" ng-click="signInGoogle()">Sign in with Google <i class="fa fa-google fa-3x" aria-hidden="true"></i></button>
+            <div class="col s12 m3 l4"><p> </p></div>
+          </div>
+          <div class="input-field col s12">
+            <div class="col s12 m3 l4"><p> </p></div>
+            <button id="facebook" class="waves-effect waves-light btn col s12 m6 l4" ng-click="signInFacebook()">Sign in with Facebook <i class="fa fa-facebook-official fa-3x" aria-hidden="true"></i></button>
+            <div class="col s12 m3 l4"><p> </p></div>
+          </div> -->
+        </div>
+        <div class="row">
+          <div class="input-field col s6 m6 l6">
+            <p class="margin medium-small"><a ui-sref="Register">Register Now!</a></p>
+          </div>
+          <div class="input-field col s6 m6 l6">
+              <p class="margin right-align medium-small"><a ui-sref="UC">Forgot password?</a></p>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

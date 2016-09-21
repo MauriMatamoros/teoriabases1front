@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Helpi</title>
+    <!-- Imports from google for firebase API -->
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-T8Gy5hrqNKT+hzMclPo118YTQO6cYprQmhrYwIiQ/3axmI1hQomh7Ud2hPOy8SP1" crossorigin="anonymous">
+
+    <!--Import Google Icon Font-->
+    <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href='https://fonts.googleapis.com/css?family=Lobster+Two' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Roboto+Condensed' rel='stylesheet' type='text/css'>
+
+    <!-- bower:css -->
+    <link rel="stylesheet" href="/hover/css/hover.css">
+    <link rel="stylesheet" href="/Materialize/bin/materialize.css">
+    <!-- endinject -->
+
+    <!-- inject:css -->
+    <link rel="stylesheet" href="styles/css/styles.css">
+    <!-- endinject -->
+
+    <!--Let browser know website is optimized for mobile-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  </head>
+  <body ng-app="helpiApp">
+    <header>
+      <nav>
+        <div class="nav-wrapper white">
+          <div class="container" ng-controller="authController">
+            <!-- <img src="styles/images/h_draw.jpg" height="60px" width="65px" style="position: absolute"/> -->
+            <a id="brand_Name" class="brand-logo" ui-sref="portfolio">Helpi</a>
+            <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons" style="color: #000;">menu</i></a>
+            <ul id="nav-mobile" class="right hide-on-med-and-down">
+              <li ng-hide="$sessionStorage.currentUser"><a ui-sref="Login">Login</a></li>
+              <li ng-hide="$sessionStorage.currentUser"><a ui-sref="Register">Register</a></li>
+              <li ng-show="isAdmin()"><a ui-sref="ManageCases">Manage Cases</a></li>
+              <li ng-show="isAdmin()"><a ui-sref="RegisterAdmin">Register Administrator</a></li>
+              <li ng-show="isAdmin()"><a ui-sref="Admin">Home</a></li>
+              <li ng-show="isDonante()"><a ui-sref="Donante">Home</a></li>
+              <li ng-show="$sessionStorage.currentUser" ui-sref="Perfil"><a>Profile</a></li>
+              <li ng-show="$sessionStorage.currentUser" ng-click="logout()"><a>Logout</a></li>
+            </ul>
+            <ul class="side-nav" id="mobile-demo">
+              <li ng-hide="$sessionStorage.currentUser"><a ui-sref="Login">Login</a></li>
+              <li ng-hide="$sessionStorage.currentUser"><a ui-sref="Register">Register</a></li>
+              <li ng-show="isAdmin()"><a ui-sref="ManageCases">Manage Cases</a></li>
+              <li ng-show="isAdmin()"><a ui-sref="RegisterAdmin">Register Administrator</a></li>
+              <li ng-show="isAdmin()"><a ui-sref="Admin">Home</a></li>
+              <li ng-show="isDonante()"><a ui-sref="Donante">Home</a></li>
+              <li ng-show="$sessionStorage.currentUser" ui-sref="Perfil"><a>Profile</a></li>
+              <li ng-show="$sessionStorage.currentUser" ng-click="logout()"><a>Logout</a></li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <div ui-view></div>
+    <!-- bower:js -->
+    <script src="/jquery/dist/jquery.js"></script>
+    <script src="/angular/angular.js"></script>
+    <script src="/angular-ui-router/release/angular-ui-router.js"></script>
+    <script src="/ngstorage/ngStorage.js"></script>
+    <script src="/firebase/firebase.js"></script>
+    <script src="/Materialize/bin/materialize.js"></script>
+    <!-- endinject -->
+
+    <script src="app.js"></script>
+
+    <!-- inject:js -->
+    <script src="scripts/controllers/authController.js"></script>
+    <script src="scripts/controllers/caseController.js"></script>
+    <script src="scripts/controllers/sessionController.js"></script>
+    <script src="scripts/controllers/userController.js"></script>
+    <script src="scripts/initializer/init.js"></script>
+    <script src="scripts/initializer/init_slider.js"></script>
+    <script src="scripts/initializer/responsiveslides.min.js"></script>
+    <script src="scripts/services/authService.js"></script>
+    <script src="scripts/services/caseService.js"></script>
+    <script src="scripts/services/sessionServices.js"></script>
+    <script src="scripts/services/userServices.js"></script>
+    <!-- endinject -->
+  </body>
+</html>

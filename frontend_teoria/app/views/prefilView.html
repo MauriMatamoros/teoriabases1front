@@ -1,0 +1,102 @@
+<script>
+  $('#openmodal').on('click', function(){
+    $('#modal1').openModal();
+  })
+</script>
+<br><br><br>
+<div class="container" ng-controller="authController">
+  <div class="row">
+    <div class="input-field col s12 center">
+      <a id="profile_Name" class="brand-logo">{{$sessionStorage.currentUser.scope[0]}} {{$sessionStorage.currentUser.name}}</a>
+      <br><br>
+    </div>
+    <div class="row">
+      <div class="center">
+        <a id="openmodal"class="btn-floating btn-large waves-effect waves-light modal-trigger red hvr-buzz"><i class="fa fa-trash fa-3x" aria-hidden="true"></i></a>
+        <a class="btn-floating btn-large waves-effect waves-light teal darken-3 hvr-bounce-to-right" ng-click="editBtn()"><i class="fa fa-pencil" aria-hidden="true"></i></a>
+      </div>
+    </div>
+    <br><br>
+    <div class="col s12 center" ng-hide="editMode">
+      <!-- USER PROFILE PHOTO -->
+      <div class="card-image">
+        <img ng-src="{{$sessionStorage.currentUser.profile_photo}}" class="profile-photo">
+      </div><br><br>
+      <a class="edit">Name:</a>
+      <p>{{$sessionStorage.currentUser.name}}</p>
+      <a class="edit">User:</a>
+      <p>{{$sessionStorage.currentUser.username}}</p>
+      <a class="edit">E-mail:</a>
+      <p>{{$sessionStorage.currentUser.email}}</p>
+    </div>
+    <div ng-controller="userCtrl">
+      <!-- Modal Structure -->
+      <div id="modal1" class="modal">
+        <div class="modal-content">
+          <h4 id="brand_Name">Delete User</h4>
+          <div class="container">
+            <p style="text-align: justify">
+              Una vez eliminado este usuario no podra recuperar ninguno de los datos como
+              seguimiento de donaciones y tampoco podra volver a donar para los casos con mayor
+              riesgo en el hospital escuela. <strong>Esta seguro de eliminar esta cuenta: <br>ingrese
+              su password para proceder a eliminar la cuenta. Si Ingreso con google o facebook, no lo ingrese</strong>
+            </p>
+            <div class="row">
+              <div id="deleteUser" class="input-field col s12">
+                <input id="password" type="password" class="validate" ng-model="password.pass">
+                <label for="password">Password</label>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <a class=" modal-action modal-close waves-effect waves-light btn-flat red" style="color: #fff;" ng-click="deleteUser()">Delete</a>
+        </div>
+      </div>
+      <div class="col s12" ng-show="editMode">
+        <div class="card-image">
+          <img ng-src="{{$sessionStorage.currentUser.profile_photo}}" class="profile-photo">
+        </div><br><br>
+        <div class="col s12 z-depth-6 card-panel">
+          <form class="login-form">
+            <div class="row">
+              <div class="input-field col s12 center">
+                <a id="brand_Name" class="brand-logo" ui-sref="portfolio">Update Profile</a>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col s12 m2 l2"><p> </p></div>
+              <div class="input-field col s12 m8 l8">
+                <i class="material-icons prefix">perm_identity</i>
+                <input ng-value="$sessionStorage.currentUser.name" id="nombre" type="text" class="validate center" ng-model="user.name">
+                <label class="active" for="nombre">Name</label>
+              </div><div class="col s12 m2 l2"><p> </p></div>
+            </div>
+            <div class="row">
+              <div class="col s12 m2 l2"><p> </p></div>
+              <div class="input-field col s12 m8 l8">
+                <i class="material-icons prefix">account_circle</i>
+                <input ng-value="$sessionStorage.currentUser.username" id="username" type="text" class="validate center" ng-model="user.username">
+                <label class="active" for="username">Username</label>
+              </div><div class="col s12 m2 l2"><p> </p></div>
+            </div><div class="col s4"></div>
+            <div class="row">
+              <div class="col s12 m2 l2"><p> </p></div>
+              <div class="input-field col s12 m8 l8">
+                <i class="material-icons prefix">email</i>
+                <input disabled ng-value="$sessionStorage.currentUser.email" id="email" type="text" class="validate center" ng-model="user.email">
+                <label for="username">E-mail</label>
+              </div><div class="col s12 m2 l2"><p> </p></div>
+            </div><div class="col s4"></div>
+            <div class="row">
+              <div class="col s12 m2 l2"><p> </p></div>
+              <div class="container center input-field col s12 m8 l8">
+                <a class="waves-effect waves-light btn col s12  indigo darken-3" ng-click="updateUser()"><i class="fa fa-repeat fa-3x" aria-hidden="true"></i> Update Information</a>
+              </div><div class="col s12 m2 l2"><p> </p></div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

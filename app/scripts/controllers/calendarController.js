@@ -1,4 +1,4 @@
-angular.module('AngularScaffold.Controllers')
+angular.module('helpiApp.Controllers')
   .controller('calendarController', ['ui.calendar','ui.bootstrap','reservacionService', '$scope', '$rootScope', '$sessionStorage', '$location', '$window',
 function (reservacionService, $scope, $rootScope, $sessionStorage, $location, $window, $compile, uiCalendarConfig) {
     $scope.Reserva = {};
@@ -19,15 +19,15 @@ function (reservacionService, $scope, $rootScope, $sessionStorage, $location, $w
       });
     }
 
-    $scope.addReserva = function(Reserva){       
-        
+    $scope.addReserva = function(Reserva){
+
       reservacionService.Add({
         id: Reserva.id,
         email: "ricardo.j.galdamez@gmail.com",
         descripcion: Reserva.descripcion,
         fecha_inicio:Reserva.fecha_inicio,
         fecha_fin:Reserva.fecha_fin,
-        
+
       }).then( function(response){
         $window.location.reload();
         //Materialize.toast(response.data, 3500);

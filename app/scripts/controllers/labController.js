@@ -35,6 +35,9 @@ function (labService, $scope, $rootScope, $sessionStorage, $location, $window) {
         }
       })
     }
+    $scope.isAdmin = function(){
+      
+    }
     $scope.deleteLab = function(Lab){
       labService.Delete(Lab.id).then( function(response){
         $window.location.reload();

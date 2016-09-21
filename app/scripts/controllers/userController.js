@@ -1,23 +1,26 @@
 angular.module('helpiApp.Controllers')
 .controller('userCtrl', ['$scope', 'userServices', '$sessionStorage', '$location', function ($scope, userServices, $sessionStorage, $location) {
       $scope.user = {
-        id: $sessionStorage.currentUser.id,
-        name: $sessionStorage.currentUser.name,
-        username: $sessionStorage.currentUser.username,
-        scope: $sessionStorage.currentUser.scope,
-        email: $sessionStorage.currentUser.email,
+        Nombre: $scope.currentUser.Nombre,
+        Apellido: $scope.currentUser.Apellido,
+        Telefono: $scope.currentUser.Telefono,
+        Departamento: $scope.currentUser.Departamento,
+        Campus: $scope.currentUser.Campus,
+        Email: $scope.currentUser.Email,
+        Password: $scope.currentUser.Password,
+        isAdmin: $scope.currentUser.isAdmin
       };
       $scope.password = {};
 
       $scope.updateUser = function(){
-        $sessionStorage.currentUser.nombre = $scope.user.name;
-        $sessionStorage.currentUser.apellido = $scope.user.apellido;
-        $sessionStorage.currentUser.email = $scope.user.email;
-        $sessionStorage.currentUser.telefono = $scope.user.telefono;
-        $sessionStorage.currentUser.campus = $scope.user.campus;
-        $sessionStorage.currentUser.departamento = $scope.user.departamento;
+        $sessionStorage.currentUser.nombre = $scope.user.Nombre;
+        $sessionStorage.currentUser.apellido = $scope.user.Apellido;
+        $sessionStorage.currentUser.email = $scope.user.Email;
+        $sessionStorage.currentUser.telefono = $scope.user.Telefono;
+        $sessionStorage.currentUser.campus = $scope.user.Campus;
+        $sessionStorage.currentUser.departamento = $scope.user.Departamento;
         $scope.user = $sessionStorage.currentUser;
-        console.log('username: ' + $scope.user.email);
+        console.log('username: ' + $scope.user.Email);
         userServices.Update($scope.user, $sessionStorage.currentUser.id).then(function(response){
           console.log(response);
           Materialize.toast("Usuario Modificado", 2500);

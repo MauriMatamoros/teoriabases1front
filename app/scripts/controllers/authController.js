@@ -186,9 +186,9 @@ angular.module('helpiApp.Controllers')
       //   })
       // }
 
-      // $scope.isAdmin = function(){
-      //   return $sessionStorage.currentUser && $sessionStorage.currentUser.scope.indexOf('admin') > -1;
-      // }
+       $scope.isAdmin = function(){
+         return $sessionStorage.currentUser && $sessionStorage.currentUser.isAdmin;
+       }
       //
       // $scope.isDonante = function(){
       //   return $sessionStorage.currentUser && $sessionStorage.currentUser.scope.indexOf('donante') > -1;

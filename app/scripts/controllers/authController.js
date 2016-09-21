@@ -16,46 +16,27 @@ angular.module('helpiApp.Controllers')
       }
 
       $scope.logout = function(){
-        // var firebaseuser = firebase.auth().currentUser;
-        // if(firebaseuser){
-        //   firebase.auth().signOut().then(function() {
-        //     Materialize.toast('Salio con exito de helpi', 2500);
-        //   }, function(error) {
-        //     console.log('An error with firebase happened');
-        //   });
-        //   if($sessionStorage.currentUser){
-        //     authService.Logout().then(function(response){
-        //       console.log('Usuario de Teoria ha salido');
-        //       $sessionStorage.$reset();
-        //       $location.path('/portfolio');
-        //     }).catch(function(err){
-        //       Materialize.toast(err.data.error + " " + err.data.message, 3500);
-        //     })
-        //   }
-        // }else{
-        //   authService.Logout().then(function(response){
-        //     Materialize.toast(response.data, 3500);
-        //     $sessionStorage.$reset();
-        //     $location.path('/portfolio');
-        //   }).catch(function(err){
-        //     Materialize.toast(err.data.error + " " + err.data.message, 3500);
-        //   })
-        // }
         authService.Logout().then(function(response){
           Materialize.toast(response.data, 3500);
-          $sessionStorage.$reset();
           $location.path('/portfolio');
         }).catch(function(err){
           Materialize.toast(err.data.error + " " + err.data.message, 3500);
-        })
+          console.log(err);
+        });
+        $sessionStorage.$reset();
       }
 
       $scope.login = function(user){
         authService.Login(user).then(function(response){
           $sessionStorage.currentUser = response.data;
           $scope.user = {};
-          $location.path('/addLab');
-          Materialize.toast('Bienvenido ' + $sessionStorage.currentUser + " " + $sessionStorage.currentUser.name, 3500);
+          if ($sessionStorage.currentUser.isAdmin) {
+            $location.path('/admin');
+            Materialize.toast('Bienvenido Administrador ' + $sessionStorage.currentUser.Nombre + " " + $sessionStorage.currentUser.Apellido, 3500);
+          }else {
+            $location.path('/Teacher');
+            Materialize.toast('Bienvenido ' + $sessionStorage.currentUser.Nombre + " " + $sessionStorage.currentUser.Apellido, 3500);
+          }
         }).catch(function(err){
           Materialize.toast(err.data.error + " " + err.data.message, 3500);
         });
@@ -69,10 +50,9 @@ angular.module('helpiApp.Controllers')
           Departamento: $scope.user.Departamento,
           Campus: $scope.user.Campus,
           Email: $scope.user.Email,
-          isAdmin: $scope.user.isAdmin = 0,
-          Password: $scope.user.Password
+          Password: $scope.user.Password,
+          isAdmin: 0
         }
-        console.log('Registrado');
         authService.Register(user).then(function(response){
           console.log('Registrado');
           Materialize.toast('Registrado Correctamente!!!', 3500);
@@ -211,6 +191,9 @@ angular.module('helpiApp.Controllers')
       //   })
       // }
 
+      // $scope.isAdmin = function(){
+      //   return $sessionStorage.currentUser && $sessionStorage.currentUser.scope.indexOf('admin') > -1;
+      // }
       //
       // $scope.isDonante = function(){
       //   return $sessionStorage.currentUser && $sessionStorage.currentUser.scope.indexOf('donante') > -1;

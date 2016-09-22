@@ -1,154 +1,97 @@
-<div ng-controller="labController">
-  <div><br><br><br></div>
-  <button ng-click="addLab(Lab)" type="submit">Add Lab</button>
-    <div>
-      
-      <div>
-        <input type="text" name="id" ng-model="Lab.id" id="id">
-        <label for="id">ID</label>        
-      </div>  
-          
-      <div>
-        <input type="text" name="name" ng-model="Lab.name" id="name">
-        <label for="name">NAME</label>        
-      </div> 
-       
-      <div>
-        <input type="text" name="descripcion" ng-model="Lab.descripcion" id="descripcion">
-        <label for="descripcion">DESC</label>        
-      </div>  
-      
-      <div>
-        <input type="text" name="ubicacion" ng-model="Lab.ubicacion" id="ubicacion">
-        <label for="ubicacion">UBICACION</label>        
-      </div>  
-      
-      <div>
-        <input type="text" name="capacidad" ng-model="Lab.capacidad" id="capacidad">
-        <label for="capacidad">CAPACIDAD</label>        
-      </div>      
-            
-    </div>
-    <div><br><br></div>
-    <div>
-      <div>
-        <button type="submit" ng-click="GetLabs()">Get Labs</button>
-      </div>
-      <div><br><br></div>
-      
-    <div>
-      <table>
-        <tr>
-          <th>
-            ID
-          </th>
-          <th>
-            NAME
-          </th>
-          <th>
-            DESC
-          </th>
-          <th>
-            CAPACIDAD
-          </th>
-          <th>
-            UBICACION
-          </th>
-        </tr>
-        <tr ng-repeat="lab in labs">
-          <td>
-            {{lab.id}}
-          </td>
-          <td>
-            {{lab.name}}
-          </td>
-          <td>
-            {{lab.descripcion}}
-          </td>
-          <td>
-            {{lab.capacidad}}
-          </td>
-          <td>
-            {{lab.ubicacion}}
-          </td>
-        </tr>
-      </table>
-    </div>
-    <div><br><br><br>   
-</div>
 <div ng-controller="calendarController">
-  <button ng-click="addReserva(Reserva)" type="submit">Add Reserva</button>
-    <div>
-      
-      <div>
-        <input type="text" name="id_reserva" ng-model="Reserva.id" id="id_reserva">
-        <label for="id_reserva">ID</label>        
-      </div>  
-          
-      <div>
-        <input type="text" name="descripcion" ng-model="Reserva.descripcion" id="descripcion_reserva">
-        <label for="descripcion_reserva">DESC</label>        
-      </div>  
-      
-      <div>
-        <input type="text" name="fecha_inicio" ng-model="Reserva.fecha_inicio" id="fecha_inicio">
-        <label for="fecha_inicio">FECHA_INI</label>        
-      </div>  
-      
-      <div>
-        <input type="text" name="fecha_fin" ng-model="Reserva.fecha_fin" id="fecha_fin">
-        <label for="fecha_fin">FECHA_FIN</label>        
-      </div>      
-            
+
+
+
+  <div class="row ">
+    <div class="container">
+
+        <div class="col s12 m6 l6">
+             <input type="text" name="id_reserva" ng-model="Reserva.id" id="id_reserva" placeholder="ID">
+
+        </div>
+
+        <div class="col s12 m6 l6">
+              <input type="text" name="descripcion" ng-model="Reserva.descripcion" id="descripcion_reserva" placeholder="descripcion">
+
+        </div>
+
+        <div class="col s12 m6 l6">
+              <input type="text" name="fecha_inicio" ng-model="Reserva.fecha_inicio" id="fecha_inicio" placeholder="Fecha Inicio">
+
+        </div>
+
+        <div class="col s12 m6 l6">
+            <input type="text" name="fecha_fin" ng-model="Reserva.fecha_fin" id="fecha_fin" placeholder="Fecha Fin">
+        </div>
+
+        <div class="col s12 m6 l6">
+              <input type="text" name="hora_inicio" ng-model="Reserva.hora_inicio" id="hora_inicio" placeholder="Hora Inicio">
+
+        </div>
+
+        <div class="col s12 m6 l6">
+            <input type="text" name="hora_fin" ng-model="Reserva.hora_fin" id="hora_fin" placeholder="Hora Fin">
+        </div>
+
+     </div>
+  </div>
+  <div class="row ">
+    <div class="container">
+        <a class="waves-effect waves-light btn center" type="submit" ng-click="addReserva(Reserva)">Add Reserva</a>
     </div>
+  </div>
+
     <div><br><br></div>
     <div>
-      <div>
-        <button type="submit" ng-click="GetLabs(id_buscar)">Get Reservas</button>
+      <div class="row">
+        <div class="col s6 m4 l4">
+          <a class="waves-effect waves-light btn" type="submit" ng-click="GetLabs(id_buscar)">Buscar Lab</a>
+        </div>
       </div>
       <div>
-        <input type="text" name="id_buscar" ng-model="id_buscar" id="id_buscar">
-        <label for="id_buscar">ID</label>        
+        <div class="col s6 m4 l4">
+          <input type="text" name="id_buscar" ng-model="id_buscar" id="id_buscar">
+          <label for="id_buscar">ID</label>
+        </div>
+
       </div>
       <div><br><br></div>
      </div>
-      
+
     <div>
+
       <table>
-        <tr>
-          <th>
-            ID
-          </th>
-          <th>
-            EMAIL
-          </th>
-          <th>
-            DESC
-          </th>
-          <th>
-            FECHA_INICIO
-          </th>
-          <th>
-            fECHA_FIN
-          </th>
-        </tr>
-        <tr ng-repeat="reserva in reservas">
-          <td>
-            {{reserva.id}}
-          </td>
-          <td>
-            {{reserva.email}}
-          </td>
-          <td>
-            {{reserva.descripcion}}
-          </td>
-          <td>
-            {{reserva.fecha_inicio}}
-          </td>
-          <td>
-            {{reserva.fecha_fin}}
-          </td>
-        </tr>
+        <thead>
+          <tr>
+              <th>ID</th>
+              <th>Email</th>
+              <th>Desc</th>
+              <th>Fecha Inicio</th>
+              <th>Fecha Fin</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <tr ng-repeat="reserva in reservas">
+            <td>
+              {{reserva.id}}
+            </td>
+            <td>
+              {{reserva.email}}
+            </td>
+            <td>
+              {{reserva.descripcion}}
+            </td>
+            <td>
+              {{reserva.fecha_inicio}}
+            </td>
+            <td>
+              {{reserva.fecha_fin}}
+            </td>
+          </tr>
+        </tbody>
       </table>
+
+
     </div>
 </div>

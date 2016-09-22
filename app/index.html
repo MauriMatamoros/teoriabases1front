@@ -34,21 +34,8 @@
             <ul id="nav-mobile" class="right hide-on-med-and-down">
               <li ng-hide="$sessionStorage.currentUser"><a ui-sref="Login">Login</a></li>
               <li ng-hide="$sessionStorage.currentUser"><a ui-sref="Register">Register</a></li>
-              <li ng-show="isAdmin()"><a ui-sref="ManageCases">Manage Cases</a></li>
-              <li ng-show="isAdmin()"><a ui-sref="RegisterAdmin">Register Administrator</a></li>
-              <li ng-show="isAdmin()"><a ui-sref="Admin">Home</a></li>
-              <li ng-show="isDonante()"><a ui-sref="Donante">Home</a></li>
-              <li ng-show="$sessionStorage.currentUser" ui-sref="Perfil"><a>Profile</a></li>
-              <li ng-show="$sessionStorage.currentUser" ng-click="logout()"><a>Logout</a></li>
-            </ul>
-            <ul class="side-nav" id="mobile-demo">
-              <li ng-hide="$sessionStorage.currentUser"><a ui-sref="Login">Login</a></li>
-              <li ng-hide="$sessionStorage.currentUser"><a ui-sref="Register">Register</a></li>
-              <li ng-show="isAdmin()"><a ui-sref="ManageCases">Manage Cases</a></li>
-              <li ng-show="isAdmin()"><a ui-sref="RegisterAdmin">Register Administrator</a></li>
-              <li ng-show="isAdmin()"><a ui-sref="Admin">Home</a></li>
-              <li ng-show="isDonante()"><a ui-sref="Donante">Home</a></li>
-              <li ng-show="$sessionStorage.currentUser" ui-sref="Perfil"><a>Profile</a></li>
+              <li ng-show="isAdmin() == true"><a ui-sref="User">Usuarios</a></li>
+              <li ng-show="$sessionStorage.currentUser"><a ui-sref="addLab">Laboratorios</a></li>
               <li ng-show="$sessionStorage.currentUser" ng-click="logout()"><a>Logout</a></li>
             </ul>
           </div>

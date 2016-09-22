@@ -35,9 +35,6 @@ function (labService, $scope, $rootScope, $sessionStorage, $location, $window) {
         }
       })
     }
-    $scope.isAdmin = function(){
-      
-    }
     $scope.deleteLab = function(Lab){
       labService.Delete(Lab.id).then( function(response){
         $window.location.reload();
@@ -47,5 +44,10 @@ function (labService, $scope, $rootScope, $sessionStorage, $location, $window) {
           Materialize.toast(err.data, 3500);
         }
       })
+    }
+
+    $scope.isAdmin = function(){
+      console.log("Es" + $sessionStorage.currentUser);
+      return $sessionStorage.currentUser && $sessionStorage.currentUser.isAdmin;
     }
 }]);

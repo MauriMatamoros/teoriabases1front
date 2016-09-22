@@ -1,26 +1,14 @@
 angular.module('helpiApp.Services').factory('sessionService', ['$http',
 	function($http){
 		$http.defaults.withCredentials = true;
-		var baseUrl = 'http://25.7.204.188:8000/';
+	 	var baseUrl = 'http://25.7.204.188:8000/';
 		//var baseUrl = 'http://cloudservices-helpi.herokuapp.com/';
 		return {
-				GetCases: function(id){
-					return $http.get(baseUrl + "cases/getcases");
+				getUsers: function(){
+					return $http.get(baseUrl + "v1/Usuarios");
 				},
-				PostDonor: function(payload, id){
-					return $http.put(baseUrl + "tables/updatemytable/" + id, payload);
-				},
-				PostCaseToUser: function(id, payload){
-					return $http.post(baseUrl + "users/mycases/"+ id +"/addCase", payload);
-				},
-				userbyEmail: function(email){
-					return $http.get(baseUrl + "users/useremail/" + email);
-				},
-				GetCaseByID: function(caseID){
-					return $http.get(baseUrl + "cases/caseid/" + caseID);
-				},
-				PutMoney: function(payload, id){
-					return $http.put(baseUrl + "cases/SetMoneyTo/" + id, payload);
+				deleteUser: function(id){
+					return $http.delete(baseUrl + "v1/Usuario/" + id);
 				}
 	    };
 }]);

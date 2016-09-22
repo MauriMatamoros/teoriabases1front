@@ -21,11 +21,19 @@ function (reservacionService, $scope, $rootScope, $sessionStorage, $location, $w
 
     $scope.addReserva = function(Reserva){
 
+      var date_ini[] = Reserva.fecha_inicio.split("/");
+      var date_end[] = Reserva.fecha_fin.split("/");
+      var hour_ini[] = Reserva.hora_inicio.split(":");
+      var hour_end[] = Reserva.hora_fin.split(":");
+
+      var initial = new Date(date_ini[0],date_ini[1],date_ini[2],hour_ini[0],hour_ini[1],0,0);
+      var final = new Date(date_end[0],date_end[1],date_end[2],hour_end[0],hour_end[1],0,0);
+
       reservacionService.Add({
         idLab: Reserva.id,
         Email: "ricardo.j.galdamez@gmail.com",
-        fecha_I:Reserva.fecha_inicio,
-        fecha_F:Reserva.fecha_fin,
+        fecha_I:initial,
+        fecha_F:final,
         Descripcion: Reserva.descripcion
 
       }).then( function(response){

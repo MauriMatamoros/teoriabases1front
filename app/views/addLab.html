@@ -6,24 +6,27 @@
 
 <div class="container" ng-controller="labController">
   <table>
+    <th>ID</th>
     <th>Nombre</th>
     <th>Descripcion</th>
     <th>Ubicacion</th>
     <th>Capacidad</th>
   <tr ng-repeat="Lab in Labs">
+    <td>{{ Lab.id }}</td>
     <td>{{ Lab.Nombre }}</td>
     <td>{{ Lab.Descripcion }}</td>
     <td>{{ Lab.Ubicacion }}</td>
     <td>{{ Lab.Capacidad }}</td>
-    <td ng-if="isAdmin()"><a class="right-align delete" ng-click="deleteLab(Lab)"><i class="material-icons">delete</i></a></td>
+    <td ng-if="isAdmin() == false"><span><i class="material-icons">star</i></span></td> <!-- Gerardo o aceite usen esto para el view -->
+    <td ng-if="isAdmin()"><span ng-click="deleteLab(Lab)"><i class="material-icons">delete</i></span></td>
   </tr>
 </table>
 
 <br>
 <br>
 <div class="row">
-    <div class="col s12 m3 l3"><p> </p></div>
-    <a id="opencasemodal" ng-if="isAdmin()"  class="waves-effect waves-light col s12 l6 m6 btn green accent-3"><i class="material-icons left">note_add</i>Agregar Lab</a>
+    <div ng-if="isAdmin()" class="col s12 m3 l3"><p> </p></div>
+    <a id="opencasemodal"  class="waves-effect waves-light col s12 l6 m6 btn green accent-3"><i class="material-icons left">note_add</i>Agregar Lab</a>
     <div class="col s12 m3 l3"><p> </p></div>
 </div>
 

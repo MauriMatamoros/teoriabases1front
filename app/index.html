@@ -34,9 +34,8 @@
             <ul id="nav-mobile" class="right hide-on-med-and-down">
               <li ng-hide="$sessionStorage.currentUser"><a ui-sref="Login">Login</a></li>
               <li ng-hide="$sessionStorage.currentUser"><a ui-sref="Register">Register</a></li>
+              <li ng-if="isAdmin()"><a ui-sref="Users">Usuarios</a></li>
               <li ng-show="$sessionStorage.currentUser"><a ui-sref="addLab">Laboratorios</a></li>
-              <li ng-show="$sessionStorage.currentUser"><a ui-sref="Docente">Home</a></li>
-              <li ng-show="$sessionStorage.currentUser" ui-sref="Perfil"><a>Profile</a></li>
               <li ng-show="$sessionStorage.currentUser" ng-click="logout()"><a>Logout</a></li>
             </ul>
           </div>

@@ -58,6 +58,10 @@ app.config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $ur
             url: '/donante/perfil',
             templateUrl: '/views/prefilView.html'
         })
+        .state('User', {
+            url: '/User',
+            templateUrl: '/views/User.html'
+        })
         .state('calendar', {
             url: '/calendar',
             templateUrl: '/views/calendarView.html'

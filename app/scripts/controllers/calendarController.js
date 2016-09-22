@@ -28,21 +28,23 @@ function (reservacionService, $scope, $rootScope, $sessionStorage, $location, $w
 
       var initial = new Date(date_ini[0],date_ini[1],date_ini[2],hour_ini[0],hour_ini[1],0,0);
       var final = new Date(date_end[0],date_end[1],date_end[2],hour_end[0],hour_end[1],0,0);
-
+alert(initial);
+alert(final);
       reservacionService.Add({
         idLab: Reserva.id,
-        Email: "jalejandroaceituno@gmail.com",
-        fecha_I:initial,
-        fecha_F:final,
+        Email: $scope.currentUser.Email,
+        Fecha_I:initial,
+        Fecha_F:final,
         Descripcion: Reserva.descripcion
 
       }).then( function(response){
+
         $window.location.reload();
-        //Materialize.toast(response.data, 3500);
+        Materialize.toast(response.data, 3500);
       }).catch(function (err){
         if (err) {
           console.log(err.data);
-          // Materialize.toast(err.data, 3500);
+          Materialize.toast(err.data, 3500);
         }
       })
     }

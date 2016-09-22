@@ -11,7 +11,7 @@ angular.module('helpiApp.Services').factory('reservacionService', ['$http',
                 return $http.delete(baseUrl + "v1/borrarReserva" + id);
             },*/
 			GetReservas: function(_lab_id){
-				return $http.get(baseUrl + "v1/Reserva/{_lab_id}");
+				return $http.get(baseUrl + "v1/Reserva/"+_lab_id);
 			}
         };
 }]);

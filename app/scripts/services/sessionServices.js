@@ -6,9 +6,9 @@ angular.module('helpiApp.Services').factory('sessionService', ['$http',
 		return {
 				getUsers: function(){
 					return $http.get(baseUrl + "v1/Usuarios");
-				}
+				},
 				deleteUser: function(id){
-					return $http.delete(baseUrl + "v1/Usuario/" + id)
+					return $http.delete(baseUrl + "v1/Usuario/" + id);
 				}
 	    };
 }]);

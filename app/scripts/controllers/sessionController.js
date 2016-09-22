@@ -1,21 +1,21 @@
 angular.module('helpiApp.Controllers')
   .controller('sessionController', ['$scope', 'sessionService', '$sessionStorage', '$window', function ($scope, sessionService, $sessionStorage, $window){
-
+    $scope.user = {};
     $scope.users = [];
 
     angular.element().ready(function(){
       $scope.getUsers();
     });
-    
+
     $scope.deleteUser = function(user){
-      sessionService.Delete(user.id).then( function(response){
+      sessionService.deleteUser(user.Email).then( function(response){
         $window.location.reload();
         Materialize.toast(response.data, 3500);
       }).catch(function (err){
         if (err) {
           Materialize.toast(err.data, 3500);
         }
-      })
+      });
     }
     $scope.getUsers = function(){
       sessionService.getUsers().then(function(response) {

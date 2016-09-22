@@ -25,8 +25,10 @@
 <br>
 <br>
 <div class="row">
-    <div ng-if="isAdmin()" class="col s12 m3 l3"><p> </p></div>
-    <a id="opencasemodal"  class="waves-effect waves-light col s12 l6 m6 btn green accent-3"><i class="material-icons left">note_add</i>Agregar Lab</a>
+    <div class="col s12 m3 l3"><p> </p></div>
+    <div ng-if="isAdmin()">
+      <a id="opencasemodal"  class="waves-effect waves-light col s12 l6 m6 btn green accent-3"><i class="material-icons left">note_add</i>Agregar Lab</a>
+    </div>
     <div class="col s12 m3 l3"><p> </p></div>
 </div>
 

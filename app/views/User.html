@@ -1,21 +1,21 @@
 <div class="container" ng-controller="sessionController">
   <table>
-    <th>ID</th>
+    <th>Email</th>
     <th>Nombre</th>
-    <th>Descripcion</th>
-    <th>Ubicacion</th>
-    <th>Capacidad</th>
-  <tr ng-repeat="Lab in Labs">
-    <td>{{ Lab.id }}</td>
-    <td>{{ Lab.Nombre }}</td>
-    <td>{{ Lab.Descripcion }}</td>
-    <td>{{ Lab.Ubicacion }}</td>
-    <td>{{ Lab.Capacidad }}</td>
-    <td ng-if="isAdmin() == false"><span><i class="material-icons">star</i></span></td> <!-- Gerardo o aceite usen esto para el view -->
-    <td ng-if="isAdmin()"><span ng-click="deleteLab(Lab)"><i class="material-icons">delete</i></span></td>
+    <th>Apellido</th>
+    <th>Telefono</th>
+    <th>Departamento</th>
+    <th>Campus</th>
+  <tr ng-repeat="user in users ">
+    <td>{{ user.Email }}</td>
+    <td>{{ user.Nombre }}</td>
+    <td>{{ user.Apellido }}</td>
+    <td>{{ user.Telefono }}</td>
+    <td>{{ user.Departamento }}</td>
+    <td>{{ user.Campus }}</td>
+    <td><span ng-click="deleteUser(user)"><i class="material-icons">delete</i></span></td>
   </tr>
 </table>
-
 <br>
 <br>
 </div>

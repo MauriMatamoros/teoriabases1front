@@ -1,7 +1,7 @@
 angular.module('helpiApp.Services').factory('reservacionService', ['$http',
     function($http){
 		$http.defaults.withCredentials = true;
-		var baseUrl = 'http://192.168.1.10:8000/';
+		var baseUrl = 'http://25.7.204.188:8000/';
 
         return {
             Add: function(payload){

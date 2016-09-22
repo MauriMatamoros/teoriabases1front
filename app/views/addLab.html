@@ -15,7 +15,7 @@
     <td>{{ Lab.Descripcion }}</td>
     <td>{{ Lab.Ubicacion }}</td>
     <td>{{ Lab.Capacidad }}</td>
-    <td ng-show="isAdmin()"><span ng-click="deleteLab(Lab)"><i class="material-icons">delete</i></span></td>
+    <td ng-if="isAdmin()"><a class="right-align delete" ng-click="deleteLab(Lab)"><i class="material-icons">delete</i></a></td>
   </tr>
 </table>
 
@@ -23,7 +23,7 @@
 <br>
 <div class="row">
     <div class="col s12 m3 l3"><p> </p></div>
-    <a id="opencasemodal"  class="waves-effect waves-light col s12 l6 m6 btn green accent-3"><i class="material-icons left">note_add</i>Agregar Lab</a>
+    <a id="opencasemodal" ng-if="isAdmin()"  class="waves-effect waves-light col s12 l6 m6 btn green accent-3"><i class="material-icons left">note_add</i>Agregar Lab</a>
     <div class="col s12 m3 l3"><p> </p></div>
 </div>
 
